@@ -1,0 +1,312 @@
+@font-face {
+    font-family: 'ibm';
+    src: url(fonts/IBMPlexMono-Regular.ttf);
+}
+@font-face {
+    font-family: 'praise';
+    src: url(fonts/Praise-Regular.ttf);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    overflow:auto;
+}
+
+body{
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    background-color:rgb(241, 227, 241);
+}
+
+.home{
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+}
+
+.main{
+    position: absolute;
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    position: relative;
+    font-family: 'ibm';
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+
+    animation: anim1 3s;
+    animation-fill-mode: forwards;
+    animation: anim3 1s ease 3s;
+    animation-fill-mode: forwards;
+}
+.main h1{
+    position: absolute;
+    overflow: hidden;
+    text-align: center;
+    width: 90%;
+    font-size: 15rem;
+    font-family: praise;
+    z-index: 1;
+
+    animation: anim2 .5s ease 2.5s;
+    animation-fill-mode: forwards;
+    animation: anim4 1s ease 3s;
+    animation-fill-mode: forwards;
+}
+
+
+.main::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left:0;
+    border-radius: 0px;
+    height: 0px;
+    width: 40px;
+    background-color: thistle;
+    z-index: 0;
+
+    animation: anim 2s;
+}
+
+@keyframes anim{
+    0%{
+    }
+    15%{
+        border-radius: 5px;
+        width: 100%;
+    }
+    35%{
+        border-radius: 0px;
+    }
+    45%{
+        width:100%;
+        height:30%;
+    }
+    50%{
+        border-radius: 0px;
+        top:0;
+        left:0;
+        height:100vh;
+        width: 100vw;
+    }
+    80%{
+        height:100vh;
+        border-radius: 0px;
+        top: 0;
+        bottom: 100%;
+    }
+    100%{
+        height:0;
+        border-radius: 0px;
+        top: 100%;
+        bottom: 0;
+        width: 100%;
+    }
+}
+
+@keyframes anim1{
+    0%{
+        background-color: white;
+    }
+    95%{
+        background-color: white;
+    }
+    100%{
+        background-color: white;
+        display:none;
+    }
+}
+
+@keyframes anim2{
+    0%{
+
+    }
+    100%{
+        color: whitesmoke;
+        font-size: 15rem;
+        font-weight: 10;
+        -webkit-filter: blur(0px);
+    }
+}
+
+@keyframes anim3{
+    0%{
+        border-radius: 0px;
+    }
+    20%{
+        border-radius: 20px;
+        background: none;
+    }
+    99%{
+        border-bottom: 0px solid lightslategray;
+    }
+    100%{
+        top:0;
+        left: 0;
+        height: 10vh;
+        width: 100vw;
+        background: none;
+        border-radius: 0px;
+        border-bottom: 1px solid lightslategray;
+        background-color: rgb(241, 227, 241);
+    }
+    
+}
+@keyframes anim4{
+    0%{
+        
+    }
+    95%{
+        font-family: praise;
+    }
+    100%{
+        font-family:praise;
+        width: 10vw;
+        font-size: 2rem;
+        padding-left: 2vh;
+    }
+}
+.left{
+    position: absolute;
+    width: 10vw;
+    height: 100vh;
+    border-right:1px solid lightslategray;
+    z-index: -1;
+    background-color: rgb(241, 227, 241);
+}
+.center{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 90vw;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 0px solid lightslategray;
+
+    animation: anim5 5s;
+}
+
+.inputfield{
+    opacity: 0;
+}
+.textInput{
+    height: 40vh;
+    width: 60vw;
+    opacity: 1;
+    font-size: 1.5rem;
+    text-wrap: wrap;
+    text-align: center;
+    font-family: ibm;
+
+  
+}
+
+.textInput p span{
+    font-family: 'ibm';
+    opacity: 0.2;
+    position: relative;
+
+}
+
+.textInput p span.correct{
+    opacity: 1;
+}
+
+.textInput p span.incorrect{
+    color: red;
+    opacity: 1;
+}
+
+.textInput p span.active{
+    color: black;
+}
+
+.textInput p span.active::before{
+    content:'';
+    left: 0;
+    bottom: 0;
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    background-color: black;
+    opacity:0;
+
+    animation: anim6 1s infinite;
+}
+
+@keyframes anim5{
+    0%{
+        display:none;
+        opacity: 0;
+    }
+    80%{
+        display:none;
+        opacity: 0;
+    }
+    100%{
+        display: flex;
+        opacity: 1;
+    }
+}
+
+@keyframes anim6{
+    50%{
+        opacity: 1;
+    }
+}
+
+.elements{
+    font-family: ibm;
+    width: 60vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.resultdetails{
+    display: flex;
+    width: 40vw;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.btn button{
+    font-family: ibm;
+    border: 0;
+    background-color: rgb(241, 227, 241);
+    text-transform: uppercase;
+}
+
+.btn button:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.time{
+    display: flex;
+    flex-direction: row;
+}
+.cpm{
+    display: flex;
+    flex-direction: row;
+}
+
+.mistakes{
+    display: flex;
+    flex-direction: row;
+}
+.wpm{
+    display: flex;
+    flex-direction: row;
+}
+
